@@ -1,8 +1,8 @@
-package course.service;
+package service;
 
 import java.util.List;
 
-import course.model.Item;
+import model.Item;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

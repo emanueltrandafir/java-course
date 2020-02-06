@@ -1,4 +1,4 @@
-package course.model;
+package model;
 
 public class Item {
 
