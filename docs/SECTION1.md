@@ -13,7 +13,6 @@ The classes with the "Do not change" message should be left untouched, the other
 - (int) department
 - (int) code
 
-    *-> hint: create a separate package 'model' for this class*
 
 ## 3. Implement the ServiceInterface class
 
