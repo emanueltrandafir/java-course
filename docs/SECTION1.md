@@ -13,7 +13,6 @@ The classes with the "Do not change" message should be left untouched, the other
 - (int) department
 - (int) code
 
-
 ## 3. Implement the ServiceInterface class
 
 The first methods that we need to support are:
@@ -24,9 +23,9 @@ The first methods that we need to support are:
 - delete item
 - read all items
 
-Because these methods are important of for our application and they can be achieved in multiple and different ways, we will be have an interface with the them. You may find this interface in the 'service' package.
+Because these methods are important for our application and they can be achieved in multiple (different) ways, we will be have an interface with the all of them. You may find this interface in the 'service' package.
 
-The first class who will implement this interface is the MemoryStorageImpl class and it will do this by storing the 'Item' Java objects in the memory. It must contain the implementation of the 5 mentioned methods as well as:
+The first class whitch will implement this interface is the MemoryStorageImpl class and it will do this by storing the 'Item' Java objects in the memory. It must contain the implementation of the 5 mentioned methods as well as:
 
 - a collection object (it can be a map or a list) where it will store the items
 - a way to generate and verify a unique id. This ID will be the key value (if you will be using a map) and it can also be added to the Item model.
