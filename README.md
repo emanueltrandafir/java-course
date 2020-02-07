@@ -2,5 +2,5 @@
 
 
 steps:
-[] step1
-[] step2
+[ ] step1
+[ ] step2
