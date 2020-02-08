@@ -19,13 +19,13 @@ public class MemoryStorageImpl implements ServiceInterface{
 	}
 
 	@Override
-	public void updateItem(int id, Item i) {
+	public void updateItem(int id, Item i)  throws NullPointerException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteItem(int id) {
+	public void deleteItem(int id)  throws NullPointerException {
 		// TODO Auto-generated method stub
 		
 	}
