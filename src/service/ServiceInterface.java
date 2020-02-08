@@ -23,9 +23,10 @@ import model.Item;
 public interface ServiceInterface {
 	
 	
+	
 	int createItem(Item item);  									// => will save the item and return the associated id
 
-	Item readItem(int id) throws NullPointerException;			    // => will return the item with the given id or throw and error (if not found)
+	Item readItem(int id) throws NullPointerException;			 	// => will return the item with the given id or throw and error (if not found)
 	
 	void updateItem(int id, Item item) throws NullPointerException; // => will override the item with the given id or throw and error (if not found)
 	
