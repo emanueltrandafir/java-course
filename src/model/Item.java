@@ -5,6 +5,7 @@ public class Item {
 	private String name;
 	private String barcode;
 	private int code; 
+	private int id;
 	
 	public Item() {}
 	 
@@ -25,6 +26,12 @@ public class Item {
 	}
 	public void setCode(int code) {
 		this.code = code;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

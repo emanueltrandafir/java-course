@@ -35,14 +35,10 @@ public class ServiceTests {
 	private static ServiceInterface 	service;
 	private static Item 				testItem;
 	private static Item 				otherTestItem;
-	private static Gson 				jsonParser;
 	 
-	// MethodName_StateUnderTest_ExpectedBehavior
 	
 	@BeforeClass
 	public static void init() { 
-		jsonParser = new Gson();
-		
 		testItem 	= new Item();
 		testItem.setBarcode("12345678");
 		testItem.setName("Brocoli");
