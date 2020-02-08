@@ -3,14 +3,11 @@ package section1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import com.google.gson.Gson;
 
 import model.Item;
 import service.MemoryStorageImpl;
@@ -30,19 +27,14 @@ import service.ServiceInterface;
  *   																						 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-public class ServiceTests {
+public class MemoryImplTests {
 
 	private static ServiceInterface 	service;
 	private static Item 				testItem;
 	private static Item 				otherTestItem;
-	private static Gson 				jsonParser;
 	 
-	// MethodName_StateUnderTest_ExpectedBehavior
-	
 	@BeforeClass
 	public static void init() { 
-		jsonParser = new Gson();
-		
 		testItem 	= new Item();
 		testItem.setBarcode("12345678");
 		testItem.setName("Brocoli");

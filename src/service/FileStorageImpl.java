@@ -2,9 +2,9 @@ package service;
 
 import java.util.List;
 
-import model.Item; 
+import model.Item;
 
-public class MemoryStorageImpl implements ServiceInterface{
+public class FileStorageImpl implements ServiceInterface{
 
 	@Override
 	public int createItem(Item item) {
@@ -19,13 +19,13 @@ public class MemoryStorageImpl implements ServiceInterface{
 	}
 
 	@Override
-	public void updateItem(int id, Item item)  throws NullPointerException {
+	public void updateItem(int id, Item item) throws NullPointerException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteItem(int id)  throws NullPointerException {
+	public void deleteItem(int id) throws NullPointerException {
 		// TODO Auto-generated method stub
 		
 	}

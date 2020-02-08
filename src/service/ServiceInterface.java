@@ -24,15 +24,15 @@ public interface ServiceInterface {
 	
 	
 	
-	int createItem(Item i);  									 // => will save the item and return the associated id
+	int createItem(Item item);  									// => will save the item and return the associated id
 
-	Item readItem(int id) throws NullPointerException;			 // => will return the item with the given id or throw and error (if not found)
+	Item readItem(int id) throws NullPointerException;			 	// => will return the item with the given id or throw and error (if not found)
 	
-	void updateItem(int id, Item i) throws NullPointerException; // => will override the item with the given id
+	void updateItem(int id, Item item) throws NullPointerException; // => will override the item with the given id or throw and error (if not found)
 	
-	void deleteItem(int id) throws NullPointerException;		 // => will delete the item with the given id
+	void deleteItem(int id) throws NullPointerException;		 	// => will delete the item with the given id or throw and error (if not found)
 	
-	List<Item> readAllItems();									 // => will return a list of all the registered items
+	List<Item> readAllItems();									 	// => will return a list of all the registered items
 	
 	
 	
