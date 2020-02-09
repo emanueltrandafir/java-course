@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -44,18 +45,18 @@ public class MemoryImplTests {
 		otherTestItem.setBarcode("87654321");
 		otherTestItem.setName("Paprika");
 		otherTestItem.setCode(125);
-	}
+	} 
 	
 	@Before
 	public void resetService() {
-		this.service = new MemoryStorageImpl();
+		service = new MemoryStorageImpl();
 	}
 	
 	
 	@Test
 	public void createItem_readItem_same() { 
 		
-		int testItemId = service.createItem(this.testItem);
+		int testItemId = service.createItem(testItem);
 		Item itemReturned = service.readItem(testItemId);
 
 		assertTrue(testItem.getBarcode().equals(itemReturned.getBarcode()));
@@ -64,19 +65,18 @@ public class MemoryImplTests {
 		
 	}
 	
-	 
 	@Test(expected = NullPointerException.class)
 	public void readItem_notExisting_throwsNullPointer() {  
 		
-		service.createItem(this.testItem); 
+		service.createItem(testItem); 
 		service.readItem(100);
 	}
 	
 	@Test
 	public void createItem_updateItem_readItem() {
 
-		int testItemId = service.createItem(this.testItem);
-		service.updateItem(testItemId, this.otherTestItem);
+		int testItemId = service.createItem(testItem);
+		service.updateItem(testItemId, otherTestItem);
 		
 		Item retunedItem = service.readItem(testItemId);
 
@@ -97,8 +97,8 @@ public class MemoryImplTests {
 	@Test(expected = NullPointerException.class)
 	public void updateItem_notExisting_throwsNullPointer() {
 
-		service.createItem(this.testItem);
-		service.updateItem(100, this.otherTestItem); 
+		service.createItem(testItem);
+		service.updateItem(100, otherTestItem); 
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -106,7 +106,7 @@ public class MemoryImplTests {
 
 	    int id = service.createItem(testItem);
 	    Item addedItem = service.readItem(id);
-	    assertEquals(this.testItem.getCode(), addedItem.getCode());
+	    assertEquals(testItem.getCode(), addedItem.getCode());
 	    
 	    service.deleteItem(id);
 	    service.readItem(id);
@@ -124,17 +124,18 @@ public class MemoryImplTests {
 
 	    List<Item> returnedItems = service.readAllItems();
 	    assertEquals(0, returnedItems.size());
-	}
+	} 
 	
 	@Test
-	public void readAllItems_fourItemsAdded_findFour() {
+	public void deleteItem_deleteAllThenRead_returnEmptyArray() {
 
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
-		
 	    List<Item> returnedItems = service.readAllItems();
-	    assertEquals(4, returnedItems.size());
+	    
+	    for(Item i : returnedItems) {
+	    	service.deleteItem(i.getId());
+	    }
+	    
+	    returnedItems = service.readAllItems();
+	    assertEquals(0, returnedItems.size());
 	}
 }

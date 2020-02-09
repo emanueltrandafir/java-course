@@ -33,6 +33,7 @@ public class MemoryStorageImpl implements ServiceInterface{
 	@Override
 	public void updateItem(int id, Item item)  throws NullPointerException {
 		if(items.containsKey(id)) {
+			item.setId(id);
 			items.put(id, item);
 		} else {
 			throw new NullPointerException();

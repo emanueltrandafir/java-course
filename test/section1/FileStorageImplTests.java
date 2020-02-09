@@ -5,12 +5,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.Item;
 import service.FileStorageImpl;
+import service.MemoryStorageImpl;
 import service.ServiceInterface;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -35,6 +37,8 @@ public class FileStorageImplTests {
 	 
 	@BeforeClass
 	public static void init() { 
+		service = new FileStorageImpl();
+
 		testItem 	= new Item();
 		testItem.setBarcode("12345678");
 		testItem.setName("Brocoli");
@@ -44,18 +48,21 @@ public class FileStorageImplTests {
 		otherTestItem.setBarcode("87654321");
 		otherTestItem.setName("Paprika");
 		otherTestItem.setCode(125);
-	}
+	}  
 	
-	@Before
-	public void resetService() {
-		this.service = new FileStorageImpl();
+	@AfterClass
+	public static void clean() {
+		List<Item> returnedItems = service.readAllItems();
+		    
+	    for(Item i : returnedItems) {
+	    	service.deleteItem(i.getId());
+	    }
 	}
-	
 	
 	@Test
 	public void createItem_readItem_same() { 
 		
-		int testItemId = service.createItem(this.testItem);
+		int testItemId = service.createItem(testItem);
 		Item itemReturned = service.readItem(testItemId);
 
 		assertTrue(testItem.getBarcode().equals(itemReturned.getBarcode()));
@@ -68,15 +75,15 @@ public class FileStorageImplTests {
 	@Test(expected = NullPointerException.class)
 	public void readItem_notExisting_throwsNullPointer() {  
 		
-		service.createItem(this.testItem); 
+		service.createItem(testItem); 
 		service.readItem(100);
 	}
 	
 	@Test
 	public void createItem_updateItem_readItem() {
 
-		int testItemId = service.createItem(this.testItem);
-		service.updateItem(testItemId, this.otherTestItem);
+		int testItemId = service.createItem(testItem);
+		service.updateItem(testItemId, otherTestItem);
 		
 		Item retunedItem = service.readItem(testItemId);
 
@@ -86,19 +93,27 @@ public class FileStorageImplTests {
 	}
 	
 	@Test
-	public void createItem_repeat100times_allItemsAdded() {
-		for(int i = 0; i<100; i++) {
-			service.createItem(testItem);
-		}
-		List<Item> returnedItems = service.readAllItems();
-		assertEquals(100, returnedItems.size());
-	}
+	public void createItem_createNewInstanceOfTheServiceAndReadItems_findAllIntialItems() {
 
+		service.createItem(testItem);
+		service.createItem(testItem);
+		service.createItem(testItem);
+		service.createItem(testItem);
+		
+	    List<Item> returnedItems = service.readAllItems();
+	    int initInitialNrOfItems = returnedItems.size();
+	    
+	    service = new FileStorageImpl();
+	    returnedItems = service.readAllItems();
+	    
+	    assertEquals(initInitialNrOfItems, returnedItems.size());
+	}
+	
 	@Test(expected = NullPointerException.class)
 	public void updateItem_notExisting_throwsNullPointer() {
 
-		service.createItem(this.testItem);
-		service.updateItem(100, this.otherTestItem); 
+		service.createItem(testItem);
+		service.updateItem(1000, otherTestItem); 
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -106,7 +121,7 @@ public class FileStorageImplTests {
 
 	    int id = service.createItem(testItem);
 	    Item addedItem = service.readItem(id);
-	    assertEquals(this.testItem.getCode(), addedItem.getCode());
+	    assertEquals(testItem.getCode(), addedItem.getCode());
 	    
 	    service.deleteItem(id);
 	    service.readItem(id);
@@ -123,18 +138,27 @@ public class FileStorageImplTests {
 	public void readAllItems_noItemsAdded_emptyArray() {
 
 	    List<Item> returnedItems = service.readAllItems();
+	    
+	    for(Item item:returnedItems) {
+	    	service.deleteItem(item.getId());
+	    }
+	    
+	    returnedItems = service.readAllItems();
 	    assertEquals(0, returnedItems.size());
 	}
 	
 	@Test
 	public void readAllItems_fourItemsAdded_findFour() {
 
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
-		service.createItem(this.testItem);
+		List<Item> returnedItems = service.readAllItems();
+		int initialNrOfItems = returnedItems.size();
 		
-	    List<Item> returnedItems = service.readAllItems();
-	    assertEquals(4, returnedItems.size());
+		service.createItem(testItem);
+		service.createItem(testItem);
+		service.createItem(testItem);
+		service.createItem(testItem);
+		
+	    returnedItems = service.readAllItems();
+	    assertEquals(initialNrOfItems + 4, returnedItems.size());
 	}
 }
