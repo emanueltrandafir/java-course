@@ -9,54 +9,35 @@ import model.Item;
 
 public class MemoryStorageImpl implements ServiceInterface{
 
-	private Map items = new HashMap<Integer, Item>();
-	private int currentId = 0;
-	
-	
 	@Override
 	public int createItem(Item item) {
-		int id = getNextId();
-		item.setId(id);
-		items.put(id, item);
-		return id;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public Item readItem(int id) throws NullPointerException {
-		if(items.containsKey(id)) {
-			return (Item) items.get(id);
-		} else {
-			throw new NullPointerException();
-		}
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public void updateItem(int id, Item item)  throws NullPointerException {
-		if(items.containsKey(id)) {
-			item.setId(id);
-			items.put(id, item);
-		} else {
-			throw new NullPointerException();
-		}
+	public void updateItem(int id, Item item) throws NullPointerException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void deleteItem(int id)  throws NullPointerException {
-		if(items.containsKey(id)) {
-			items.remove(id);
-		} else {
-			throw new NullPointerException();
-		}
+	public void deleteItem(int id) throws NullPointerException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public List<Item> readAllItems() {
-		return (List<Item>) items.values().stream().collect(Collectors.toList());
+		// TODO Auto-generated method stub
+		return null;
 	}
-
-	public int getNextId(){
-		currentId ++;
-		return currentId;
-	}
+ 
 	
 }
