@@ -67,7 +67,7 @@ public class FileStorageImplTests {
 
 		assertTrue(testItem.getBarcode().equals(itemReturned.getBarcode()));
 		assertTrue(testItem.getName().equals(itemReturned.getName()));
-		assertTrue(testItem.getBarcode().equals(itemReturned.getBarcode()));
+		assertTrue(otherTestItem.getCode() == itemReturned.getCode());
 		
 	}
 	
@@ -89,7 +89,7 @@ public class FileStorageImplTests {
 
 		assertTrue(otherTestItem.getBarcode().equals(retunedItem.getBarcode()));
 		assertTrue(otherTestItem.getName().equals(retunedItem.getName()));
-		assertTrue(otherTestItem.getBarcode().equals(retunedItem.getBarcode()));
+		assertTrue(otherTestItem.getCode() == retunedItem.getCode());
 	}
 	
 	@Test
