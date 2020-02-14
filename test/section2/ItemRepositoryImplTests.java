@@ -1,4 +1,4 @@
-package section1;
+package section2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,13 +6,12 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.Item;
+import service.DBStorgeImpl;
 import service.FileStorageImpl;
-import service.MemoryStorageImpl;
 import service.ServiceInterface;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -29,7 +28,7 @@ import service.ServiceInterface;
  *   																						 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-public class FileStorageImplTests {
+public class ItemRepositoryImplTests {
 
 	private static ServiceInterface 	service;
 	private static Item 				testItem;
@@ -37,9 +36,10 @@ public class FileStorageImplTests {
 	
 	public static int nonExistingItemId = 9999;
 	
+	
 	@BeforeClass
 	public static void init() { 
-		service = new FileStorageImpl();
+		service = new DBStorgeImpl();
 
 		testItem 	= new Item();
 		testItem.setBarcode("12345678");
@@ -132,7 +132,7 @@ public class FileStorageImplTests {
 	public void deleteItem_notExistingItem_throwsNullPointer() {
 		
 		service.createItem(testItem);
-		service.deleteItem(1000);
+		service.deleteItem(nonExistingItemId);
 	} 
 	
 	@Test
@@ -162,5 +162,4 @@ public class FileStorageImplTests {
 	    returnedItems = service.readAllItems();
 	    assertEquals(initialNrOfItems + 4, returnedItems.size());
 	}
-	
 }
