@@ -12,32 +12,37 @@ public class DBStorgeImpl implements ServiceInterface{
 	
 	@Override
 	public int createItem(Item item) {
-		// TODO Auto-generated method stub
-		return 0;
+		return itemRepository.save(item);
 	}
 
 	@Override
 	public Item readItem(int id) throws NullPointerException {
-		// TODO Auto-generated method stub
-		return null;
+		if(!itemRepository.exists(id)) {
+			throw new NullPointerException();
+		}
+		return itemRepository.getById(id);
 	}
 
 	@Override
 	public void updateItem(int id, Item item) throws NullPointerException {
-		// TODO Auto-generated method stub
-		
+		if(!itemRepository.exists(id)) {
+			throw new NullPointerException();
+		}
+		item.setId(id);
+		itemRepository.update(item);
 	}
 
 	@Override
 	public void deleteItem(int id) throws NullPointerException {
-		// TODO Auto-generated method stub
-		
+		if(!itemRepository.exists(id)) {
+			throw new NullPointerException();
+		}
+		itemRepository.delete(id);
 	}
 
 	@Override
 	public List<Item> readAllItems() {
-		// TODO Auto-generated method stub
-		return null;
+		return itemRepository.findAll();
 	}
 
 }
