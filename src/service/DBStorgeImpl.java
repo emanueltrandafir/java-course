@@ -1,14 +1,15 @@
 package service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
-import model.Item; 
+import model.Item;
+import repository.ItemRepositoryImpl;
+import repository.RepositoryInterface;
 
-public class MemoryStorageImpl implements ServiceInterface{
+public class DBStorgeImpl implements ServiceInterface{
 
+	private RepositoryInterface itemRepository = ItemRepositoryImpl.getInstance();
+	
 	@Override
 	public int createItem(Item item) {
 		// TODO Auto-generated method stub
@@ -38,6 +39,5 @@ public class MemoryStorageImpl implements ServiceInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
- 
-	
+
 }

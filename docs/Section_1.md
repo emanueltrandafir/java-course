@@ -1,4 +1,4 @@
-# SECTION 1
+# Section 1
 
 ## 1. Check the structure of the project.
 
@@ -58,7 +58,9 @@ import java.lang.reflect.Type;
 ```
 
 ```java
-    Type itemMapType = new TypeToken<HashMap<Item>>(){}.getType();
+    Gson gson = new Gson();
 
-    HashMap<Item> itemsMap = g.fromJson(json, itemMapType);
+    Type itemMapType = new TypeToken<HashMap<Integer, Item>>(){}.getType();
+
+    HashMap<Integer, Item> itemsMap = gson.fromJson(json, itemMapType);
 ```
