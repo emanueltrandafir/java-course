@@ -82,7 +82,7 @@ public class MemoryImplTests {
 
 		assertTrue(otherTestItem.getBarcode().equals(retunedItem.getBarcode()));
 		assertTrue(otherTestItem.getName().equals(retunedItem.getName()));
-		assertTrue(otherTestItem.getBarcode().equals(retunedItem.getBarcode()));
+		assertTrue(testItemId == retunedItem.getId());
 	}
 	
 	@Test
