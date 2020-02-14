@@ -34,7 +34,7 @@ public class DBStorageImplTests {
 	private static ServiceInterface 	service;
 	private static RepositoryInterface  mockedRepo;
 	public  static Item 				testItem;
-	public  static int 					nonExistingId = 99;
+	public  static int 					nonExistingId = 9999;
 	
 	@BeforeClass
 	public static void init() { 
@@ -70,7 +70,7 @@ public class DBStorageImplTests {
 		
 		assertTrue(testItem.getName().equals(passedItem.getName()));
 		assertTrue(testItem.getBarcode().equals(passedItem.getBarcode()));
-		assertEquals(0, testItemId);
+		assertEquals(testItemId, passedItem.getId());
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class DBStorageImplTests {
 		assertEquals(testItem.getId(), checkedId);
 		
 		int deletedId = ((MockRepository) mockedRepo).idOfDeletedItem;
-		assertEquals(testItem, deletedId);
+		assertEquals(testItem.getId(), deletedId);
 	}
 	
 	@Test(expected = NullPointerException.class)
