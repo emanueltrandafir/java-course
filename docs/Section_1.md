@@ -1,10 +1,10 @@
-# Section 1
+# Section 1 - (Memory and File Storage)
 
-## 1. Check the structure of the project.
+## 1. Check the structure of the project
 
 The classes with the "Do not change" message should be left untouched, the other ones can and should be updated.
 
-## 2. Edit the Item class and add the folowing attributes:
+## 2. Edit the Item class and add the folowing attributes.
 
 - (String) name
 - (String) description
@@ -32,9 +32,11 @@ The first class whitch will implement this interface is the MemoryStorageImpl cl
 
 ## 4. Run the unit tests
 
-*The tests will be added to the project shortly*
+- Go to test > section1 > **MemoryStorageImplTests**
+- Right-click on the on the class (*MemoryStorageImplTests*)
+- Run as > JUnit Test
 
-## 5. Homework 1
+## 5. Homework 1 - FileStorageImpl
 
 Create another implementation of the service (ServiceImplFileStorage) that will store the items map or list as a json string into a file instead of keeping them in memory.
 
@@ -64,3 +66,10 @@ import java.lang.reflect.Type;
 
     HashMap<Integer, Item> itemsMap = gson.fromJson(json, itemMapType);
 ```
+
+## 6. Run the unit tests
+
+- Go to test > section1 > **FileStorageImplTests**
+- Right-click on the on the class (*FileStorageImplTests*)
+- Run as > JUnit Test
+
