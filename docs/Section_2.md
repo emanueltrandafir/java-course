@@ -8,7 +8,7 @@ Beacause working with a database is a more complex operation than kepping the it
 
 In our project, the class that will be responsible for the DB communication will be called **ItemRepository** and it is implementing the methods defined in the **RepositoryInterface** class.
 
-![fig1.](./img/fig1.jpg)
+![fig1.](./img/fig1.JPG)
 
 ## 2. DB Storage Implementation
 
