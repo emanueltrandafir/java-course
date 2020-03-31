@@ -1,4 +1,4 @@
-# Section 1 - (DB Storage and Repository)
+# Section 2 - (DB Storage and Repository)
 
 ## 1. Service - Repository - DB
 
