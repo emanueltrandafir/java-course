@@ -73,3 +73,7 @@ import java.lang.reflect.Type;
 - Right-click on the on the class (*FileStorageImplTests*)
 - Run as > JUnit Test
 
+
+
+
+[continue](https://github.com/emanueltrandafir/java-course/blob/master/docs/Section_2.md) 
