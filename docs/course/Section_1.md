@@ -76,4 +76,4 @@ import java.lang.reflect.Type;
 
 
 
-[continue](https://github.com/emanueltrandafir/java-course/blob/master/docs/Section_2.md) 
+[continue](https://github.com/emanueltrandafir/java-course/blob/master/docs/course/Section_2.md) 
