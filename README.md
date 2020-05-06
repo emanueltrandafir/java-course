@@ -8,6 +8,6 @@
 ## design patterns
 
 ### creatinal patterns:
-    - [Simple Factory]()
-    - Factory Method
-    - Builder
+    - [Simple Factory](https://github.com/emanueltrandafir/java-course/blob/master/src/examples/design_patterns/creational/SimpleFactory.java)
+    - [Factory Method](https://github.com/emanueltrandafir/java-course/blob/master/docs/design%20patterns/factory_method.md)
+    - [Builder](https://github.com/emanueltrandafir/java-course/blob/master/src/examples/design_patterns/creational/Builder.java)
