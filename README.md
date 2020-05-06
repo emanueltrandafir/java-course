@@ -9,8 +9,6 @@
 
 ### creatinal patterns:
 
-    [Simple Factory](https://github.com/emanueltrandafir/java-course/blob/master/src/examples/design_patterns/creational/SimpleFactory.java)
-    
-    [Factory Method](https://github.com/emanueltrandafir/java-course/blob/master/docs/design%20patterns/factory_method.md)
-    
-    [Builder](https://github.com/emanueltrandafir/java-course/blob/master/src/examples/design_patterns/creational/Builder.java)
+    - [Simple Factory](./src/examples/design_patterns/creational/SimpleFactory.java)
+    - [Factory Method]./docs/design%20patterns/factory_method.md)
+    - [Builder](./src/examples/design_patterns/creational/Builder.java)
